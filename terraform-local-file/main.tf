@@ -22,3 +22,7 @@ resource "random_pet" "my-pet" {
 
 
 }
+
+data "local_file" "dog" {
+    filename = "/home/bogdan/bogdan.txt"
+}
