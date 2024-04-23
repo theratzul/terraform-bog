@@ -1,5 +1,8 @@
 resource "local_file" "pet" {
-    filename = "/home/bogdan/bogdan.txt"
+   # filename = "/home/bogdan/bogdan.txt"
+    filename = var.filename[count.index]
+    #count    = 3
+    count   = length(var.filename)
     content = "We love pets"
 
     # A new resource will be created before deleting the old one
@@ -7,6 +10,12 @@ resource "local_file" "pet" {
     create_before_destroy = true    
     }
 
+}
+
+output "pets" {
+    value = local_file.pet
+    sensitive = true
+    # sensitive, to confirm your intent.
 }
 
 resource "random_pet" "my-pet" {
