@@ -17,5 +17,8 @@ resource "random_pet" "my-pet" {
     # The resource is not deleted at apply but is deleted at destroy
     lifecycle {
         prevent_destroy = true
+       # ignore_changes = [tags]
     }
+
+
 }
